@@ -34,7 +34,7 @@ const PokemonList = () => {
 
     return (
         <>
-            <Container>
+            < Container >
                 {
                     pokemonList?.map((e, index) => {
                         if (pokemonList.length - 1 === index) {

@@ -19,6 +19,11 @@ export const pokemonReducer = (state = initialState, action) => {
                 pokemonList: [...state.pokemonList, ...action.data],
                 nextPage: action.nextPage
             }
+        case 'activo':
+            return {
+                ...state,
+                pokemonActivo: action.pokemon
+            }
         default:
             return state;
     }
