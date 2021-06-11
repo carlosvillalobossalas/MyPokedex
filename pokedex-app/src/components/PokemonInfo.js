@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 import { Container } from '../styles/PokemonInfo'
 import PokemonInfoLower from './PokemonInfoLower'
 import PokemonInfoUpper from './PokemonInfoUpper'

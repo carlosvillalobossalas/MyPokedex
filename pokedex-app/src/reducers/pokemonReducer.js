@@ -11,7 +11,8 @@ export const pokemonReducer = (state = initialState, action) => {
             return {
                 ...state,
                 pokemonList: action.data,
-                nextPage: action.nextPage
+                nextPage: action.nextPage,
+                pokemonActivo: action.pokemon
             }
         case 'morePokemon':
             return {
@@ -22,7 +23,7 @@ export const pokemonReducer = (state = initialState, action) => {
         case 'activo':
             return {
                 ...state,
-                pokemonActivo: action.pokemon
+                pokemonActivo: action.pokemon,
             }
         default:
             return state;

@@ -12,7 +12,7 @@ const PokedexApp = () => {
         <Provider store={store}>
             <Container>
                 <PokemonList />
-                < PokemonInfo />
+                <PokemonInfo />
             </Container>
         </Provider>
     )

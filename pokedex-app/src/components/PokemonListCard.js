@@ -24,6 +24,8 @@ const PokemonListCard = ({ pokemon }) => {
         [pokemon.url],
     );
 
+
+
     useEffect(() => {
         getPokemonInfo()
     }, [getPokemonInfo]);

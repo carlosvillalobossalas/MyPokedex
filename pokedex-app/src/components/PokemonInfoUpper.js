@@ -7,7 +7,6 @@ const PokemonInfoUpper = () => {
     const { pokemonActivo } = useSelector(state => state.data);
     const [eggGroups, setEggGroups] = useState([]);
 
-
     const getEggGroups = useCallback(
         async () => {
             const resp = await axios({
@@ -19,32 +18,12 @@ const PokemonInfoUpper = () => {
         [pokemonActivo],
     );
 
-    const getEvolutionChain = useCallback(
-        async () => {
-            const resp = await axios({
-                method: 'GET',
-                url: `https://pokeapi.co/api/v2/evolution-chain/${pokemonActivo.id}/`
-            });
-
-            console.log(resp)
-        },
-        [pokemonActivo],
-    )
-
     useEffect(() => {
-
         if (pokemonActivo) {
-            console.log(pokemonActivo)
             getEggGroups();
         }
 
     }, [pokemonActivo, getEggGroups]);
-
-    useEffect(() => {
-        if (pokemonActivo) {
-            getEvolutionChain();
-        }
-    }, [pokemonActivo])
 
     return (
         <Container>

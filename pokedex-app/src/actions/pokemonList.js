@@ -1,5 +1,14 @@
 import axios from "axios";
 
+const getFirstPokemon = async (url) => {
+    const resp = await axios({
+        method: 'GET',
+        url
+    });
+
+    return resp.data;
+}
+
 export const getInitialData = () => {
     return async (dispatch) => {
         const resp = await axios({
@@ -8,10 +17,13 @@ export const getInitialData = () => {
         });
 
         if (resp.status === 200) {
+            const activo = await getFirstPokemon(resp.data.results[0].url);
+
             dispatch({
                 type: 'initial',
                 data: resp.data.results,
-                nextPage: resp.data.next
+                nextPage: resp.data.next,
+                pokemon: activo
             })
         }
     }
