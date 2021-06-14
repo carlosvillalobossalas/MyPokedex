@@ -1,28 +1,38 @@
 import axios from "axios";
 
-const getFirstPokemon = async (url) => {
+const getPokemon = async (urlPokemon) => {
+    // console.log(url)
+    const url = 'http://localhost:3000/api/pokemon/pokemon'
     const resp = await axios({
         method: 'GET',
-        url
+        url: url,
+        params: {
+            url: urlPokemon
+        }
     });
-
-    return resp.data;
+    // console.log('GET POKEMON', resp.data.data)
+    return resp.data.data;
 }
 
 export const getInitialData = () => {
     return async (dispatch) => {
         const resp = await axios({
             method: 'GET',
-            url: "https://pokeapi.co/api/v2/pokemon?offset=0&limit=15",
+            url: "http://localhost:3000/api/pokemon/initial",
         });
 
-        if (resp.status === 200) {
-            const activo = await getFirstPokemon(resp.data.results[0].url);
+        const { data } = resp.data;
 
+        // console.log(data)
+        if (resp.status === 200) {
+            const url = data.results[0].url
+            const activo = await getPokemon(url);
+
+            // console.log(activo)
             dispatch({
                 type: 'initial',
-                data: resp.data.results,
-                nextPage: resp.data.next,
+                data: data.results,
+                nextPage: data.next,
                 pokemon: activo
             })
         }

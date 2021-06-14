@@ -4,21 +4,20 @@ export const Container = styled.div`
     background-color: #CB2D2D;
     border: 3px solid #E38383;
     border-radius: 10px;
-    height: 900px;
+    height: 850px;
     overflow-y: scroll;
     margin: 0px 20px;
     width: 500px;
 `
 
 export const PokemonCardContainer = styled.div`
-    width: 85%;
+    width: 84.5%;
     align-items: center;
     display: flex;
     position: relative;
     padding: 10px 35px;
     margin-bottom: 2.5px;
     background-color: ${({ active }) => (active ? '#710B0B' : '#460404')};
-
 `
 
 export const PokemonImg = styled.img`
@@ -37,5 +36,4 @@ export const PokemonId = styled.p`
     right: 0;
     position: absolute;
     padding-right: 40px;
-
 `
